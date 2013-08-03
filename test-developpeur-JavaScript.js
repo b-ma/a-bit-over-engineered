@@ -4,12 +4,19 @@
 // À la fin des 10 secondes, je veux afficher le total de clignotements
 // Mais le code ne fonctionne pas complètement, je ne sais pas pourquoi :(
 
+// @TODO :
+//      - move css
+//      - add css fade animation
+//      - add String.format method to diplay result
+//      - nodeList.forEach ?
+
 // aBitOverIngineered
 (function(document, undefined) {
     'use strict';
 
     var app = window.app = window.app || {};
 
+    // events
     app.events = (function() {
         var cache = {};
 
@@ -35,28 +42,33 @@
     // pulsar
     (function() {
 
-        var delay = 2 * 1000;
+        var period = 2 * 1000,
+            counter, totalTime, divider;
 
-        var pulse = function(elms) {
-            var counter = 0,
-                totalTime = 10 * 1000;
+        var setDivider = function(nbrRows) {
+            divider = nbrRows;
+        }
+
+        var pulse = function(fx) {
+            counter = 0;
+            totalTime = 10 * 1000;
 
             (function pulse(counter) {
                 if (!totalTime) {
-                    app.events.emit('pulse:end', [counter]);
+                    app.events.emit('pulsar:end', [counter]);
                     return;
                 }
-
-                counter += 1;
+                var delay = fx ? period / divider : period;
                 totalTime -= delay;
+                counter += 1;
 
-                app.events.emit('pulse', [counter]);
+                app.events.emit('pulsar:pulse', [counter, fx]);
                 setTimeout(pulse, delay, counter);
             }(counter));
         };
 
-        app.events.listen('pulse:start', pulse);
-
+        app.events.listen('pulsar:start', pulse);
+        app.events.listen('rows:length', setDivider);
     }());
 
     // scene
@@ -66,26 +78,44 @@
             classes = ['white', 'black'],
             waitingMessage = rows[0].innerHTML;
 
-        var updateList = function(classname, text) {
+        app.events.emit('rows:length', [rowsLength]);
+
+        var showResult = function(counter) {
+            var resultContainer = document.getElementById('result');
+            resultContainer.innerHTML = counter;
+        }
+
+        var updateList = function(counter, text) {
             for (var i = 0; i < rowsLength; i += 1) {
-                rows[i].className = classname;
-                if (text) {
-                    rows[i].innerHTML = text;
-                }
+                updateRow(i, counter, text, classes[counter % 2]);
             }
         }
 
-        var onPulse = function(counter) {
-            updateList(classes[counter % 2], counter);
+        var updateRow = function(index, counter, text, classname) {
+            rows[index].className = classname;
+            if (text) {
+                rows[index].innerHTML = text;
+            }
+        }
+
+        var onPulse = function(counter, fx) {
+            if (fx) {
+                var index = (counter - 1) % rowsLength,
+                    classIndex = (parseInt((counter - 1) / rowsLength, 10) + 1) % 2;
+
+                updateRow(index, counter, counter + '', classes[classIndex]);
+            } else {
+                updateList(counter, counter);
+            }
         }
 
         var onEnd = function(counter) {
-            alert(counter);
-            updateList(classes[0], waitingMessage);
+            showResult(counter);
+            updateList(0, waitingMessage);
         }
 
-        app.events.listen('pulse', onPulse);
-        app.events.listen('pulse:end', onEnd);
+        app.events.listen('pulsar:pulse', onPulse);
+        app.events.listen('pulsar:end', onEnd);
 
     }());
 
@@ -93,10 +123,13 @@
     (function() {
 
         var btn = document.getElementById('launch');
+        var fx  = document.getElementById('fx');
 
         var launch = function(e) {
             e.preventDefault();
-            app.events.emit('pulse:start');
+
+            var isFx = fx.checked;
+            app.events.emit('pulsar:start', [isFx]);
         }
 
         var started = function() {
@@ -111,8 +144,8 @@
 
         btn.addEventListener('click', launch, false);
 
-        app.events.listen('pulse:start', started);
-        app.events.listen('pulse:end', ended);
+        app.events.listen('pulsar:start', started);
+        app.events.listen('pulsar:end', ended);
 
     }());
 

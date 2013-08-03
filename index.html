@@ -4,8 +4,12 @@
     <title>test</title>
     <style>
         html {
-            background-color: #efefef;
             font-size: 64.5%;
+        }
+
+        body {
+            font: 200 1.4rem "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #efefef;
         }
 
         .btn {
@@ -43,7 +47,6 @@
 
         ul li {
             margin: 4px 0;
-            font: 200 1.4rem "Helvetica Neue", Helvetica, Arial, sans-serif;
             text-align: center;
             padding: 5px 0;
             border: 1px solid #868686;
@@ -64,9 +67,14 @@
             background-color: #ffffff;
             color: #242424;
         }
+
+        #result {
+            position: absolute;
+        }
     </style>
 </head>
 <body>
+    <p id="result"></p>
     <ul>
         <li class="white">waiting to blink...</li>
         <li class="white">waiting to blink...</li>
@@ -79,6 +87,9 @@
         <li class="white">waiting to blink...</li>
         <li class="white">waiting to blink...</li>
     </ul>
+    <label>Incredible FX
+        <input type="checkbox" id="fx" />
+    </label>
     <button id="launch" class="btn">start</button>
 
     <script src="./test-developpeur-JavaScript.js"></script>
