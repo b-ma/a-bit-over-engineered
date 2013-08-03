@@ -24,30 +24,24 @@ setTimeout("alert('Le total des clignotements est:' + clignotements)", 1000);
 (function(document, undefined) {
     'use strict';
 
-    var duration = 10 * 1000,
+    var totalTime = 10 * 1000,
         delay = 2 * 1000,
         rows = document.getElementsByTagName('li'),
         rowsLength = rows.length,
-        classes = ['white', 'black'],
-        currentNode, currentClass;
+        classes = ['white', 'black'];
 
     (function pulse(counter) {
-        if (!duration) {
-            alert(counter);
-            return;
-        }
-
-        currentClass = classes[counter % 2];
-        counter += 1;
-        duration -= delay;
-
         for (var i = 0; i < rowsLength; i++) {
-            rows[i].className = currentClass;
+            rows[i].className = classes[counter % 2];
             rows[i].innerHTML = counter;
         }
 
-        setTimeout(pulse, delay, counter);
+        if (!totalTime) {
+            alert(counter);
+        } else {
+            totalTime -= delay;
+            setTimeout(pulse, delay, counter += 1);
+        }
     }(0));
-
 
 }(document));
