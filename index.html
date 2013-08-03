@@ -5,19 +5,54 @@
     <style>
         html {
             background-color: #efefef;
+            font-size: 64.5%;
+        }
+
+        .btn {
+            font: 200 1.4rem "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 8px 0;
+            width: 100%;
+            background-color: #093579;
+            background: -webkit-linear-gradient( bottom, #093579, #035f9a );
+            background: -moz-linear-gradient( bottom, #093579, #035f9a );
+            background: -o-linear-gradient( bottom, #093579, #035f9a );
+            background: -ms-linear-gradient( bottom, #093579, #035f9a );
+            background: linear-gradient( to top, #093579, #035f9a );
+            box-shadow: 0 0 3px 0 rgba( 80, 80, 80, 0.8 ) inset;
+            color: #ffffff;
+            border-radius: 4px;
+            border: 1px solid #035f9a;
+            outline: none;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: -webkit-linear-gradient( bottom, #0d3d88, #0772b5 );
+            background: -moz-linear-gradient( bottom, #0d3d88, #0772b5 );
+            background: -o-linear-gradient( bottom, #0d3d88, #0772b5 );
+            background: -ms-linear-gradient( bottom, #0d3d88, #0772b5 );
+            background: linear-gradient( to top, #0d3d88, #0772b5 );
+            border: 1px solid #093579;
+            box-shadow: 0 0 4px 0 rgba( 90, 90, 90, 0.8 ) inset;
         }
 
         ul {
             list-style-type: none;
             padding: 40px 0 0;
         }
+
         ul li {
             margin: 4px 0;
-            font-family: Arial;
+            font: 200 1.4rem "Helvetica Neue", Helvetica, Arial, sans-serif;
             text-align: center;
             padding: 5px 0;
             border: 1px solid #868686;
             border-radius: 4px;
+            box-shadow: 0 0 1px 0 rgba( 120, 120, 120, 0.6 ) inset;
+        }
+
+        button {
+
         }
 
         .black {
@@ -33,17 +68,19 @@
 </head>
 <body>
     <ul>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
     </ul>
+    <button id="launch" class="btn">start</button>
+
     <script src="./test-developpeur-JavaScript.js"></script>
 </body>
 </html>
