@@ -5,10 +5,9 @@
 // Mais le code ne fonctionne pas complètement, je ne sais pas pourquoi :(
 
 // @TODO :
-//      - move css
-//      - add css fade animation
 //      - add String.format method to diplay result
 //      - nodeList.forEach ?
+//      - add grunt
 
 // aBitOverIngineered
 (function(document, undefined) {
@@ -81,8 +80,17 @@
         app.events.emit('rows:length', [rowsLength]);
 
         var showResult = function(counter) {
-            var resultContainer = document.getElementById('result');
-            resultContainer.innerHTML = counter;
+            var modal = document.createElement('div');
+            var firstNode = document.body.firstChild;
+
+            modal.id = 'result';
+            modal.innerHTML = 'Result : ' + counter;
+
+            document.body.insertBefore(modal, firstNode);
+
+            setTimeout(function() {
+                modal.parentNode.removeChild(modal);
+            }, 3000);
         }
 
         var updateList = function(counter, text) {
@@ -100,10 +108,11 @@
 
         var onPulse = function(counter, fx) {
             if (fx) {
-                var index = (counter - 1) % rowsLength,
+                var fxClasses = classes.map(function(classname) { return classname + ' anim' }),
+                    index = (counter - 1) % rowsLength,
                     classIndex = (parseInt((counter - 1) / rowsLength, 10) + 1) % 2;
 
-                updateRow(index, counter, counter + '', classes[classIndex]);
+                updateRow(index, counter, counter + '', fxClasses[classIndex]);
             } else {
                 updateList(counter, counter);
             }
@@ -150,39 +159,4 @@
     }());
 
 }(document));
-
-/*
-@TODO :
-    - controller : button
-    - popup with button to close
-    - create a communication object (pubsub or something)
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
