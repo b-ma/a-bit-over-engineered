@@ -10,7 +10,7 @@
 //      - add grunt
 
 // aBitOverIngineered
-(function(document, undefined) {
+(function(window, document, undefined) {
     'use strict';
 
     var app = window.app = window.app || {};
@@ -24,7 +24,7 @@
                 if (!cache[channel]) { return; }
 
                 cache[channel].forEach(function(func) {
-                    func.apply(undefined, args);
+                    func.apply(window, args);
                 });
             },
 
@@ -158,5 +158,5 @@
 
     }());
 
-}(document));
+}(window, document));
 
