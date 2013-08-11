@@ -1,0 +1,141 @@
+html {
+    font-size: 64.5%;
+}
+
+body {
+    font: 200 1.4rem "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #efefef;
+}
+
+label {
+    font-style: italic;
+    color: #424242;
+    margin-left: 6rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 4px 0;
+    text-align: center;
+    padding: 5px 0;
+    border: 1px solid #868686;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 0 rgba( 120, 120, 120, 0.6 ) inset;
+}
+
+.black {
+    background-color: #242424;
+    color: #ffffff;
+}
+
+.black.anim {
+    animation: toBlack 500ms;
+    -webkit-animation: toBlack 500ms;
+    -webkit-transform: translate3d( 0, 0, 0 );
+}
+
+.white {
+    background-color: #ffffff;
+    color: #242424;
+}
+
+.white.anim {
+    animation: toWhite 500ms;
+    -webkit-animation: toWhite 500ms;
+    -webkit-transform: translate3d( 0, 0, 0 );
+}
+
+@keyframes toBlack {
+    from {
+        background-color: #ffffff;
+        color: #242424;
+    }
+    to {
+        background-color: #242424;
+        color: #ffffff;
+    }
+}
+
+@-webkit-keyframes toBlack {
+    from {
+        background-color: #ffffff;
+        color: #242424;
+    }
+    to {
+        background-color: #242424;
+        color: #ffffff;
+    }
+}
+
+@-webkit-keyframes toWhite {
+    from {
+        background-color: #242424;
+        color: #ffffff;
+    }
+    to {
+        background-color: #ffffff;
+        color: #242424;
+    }
+}
+
+@keyframes toWhite {
+    from {
+        background-color: #242424;
+        color: #ffffff;
+    }
+    to {
+        background-color: #ffffff;
+        color: #242424;
+    }
+}
+
+#result {
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    left: 30%;
+    z-index: 20;
+    background-color: #424242;
+    opacity: 0.8;
+    box-shadow: 0 0 3px 0 rgba( 80, 80, 80, 0.8 );
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 400%;
+    text-align: center;
+}
+
+.btn {
+    font: 200 1.4rem "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 8px 0;
+    width: 100%;
+    background-color: #093579;
+    background: -webkit-linear-gradient( bottom, #093579, #035f9a );
+    background: -moz-linear-gradient( bottom, #093579, #035f9a );
+    background: -o-linear-gradient( bottom, #093579, #035f9a );
+    background: -ms-linear-gradient( bottom, #093579, #035f9a );
+    background: linear-gradient( to top, #093579, #035f9a );
+    box-shadow: 0 0 3px 0 rgba( 80, 80, 80, 0.8 ) inset;
+    color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #035f9a;
+    outline: none;
+}
+
+.btn:hover,
+.btn:focus {
+    background: -webkit-linear-gradient( bottom, #0d3d88, #0772b5 );
+    background: -moz-linear-gradient( bottom, #0d3d88, #0772b5 );
+    background: -o-linear-gradient( bottom, #0d3d88, #0772b5 );
+    background: -ms-linear-gradient( bottom, #0d3d88, #0772b5 );
+    background: linear-gradient( to top, #0d3d88, #0772b5 );
+    border: 1px solid #093579;
+    box-shadow: 0 0 4px 0 rgba( 90, 90, 90, 0.8 ) inset;
+}
+
+

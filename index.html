@@ -1,49 +1,28 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>test</title>
-    <style>
-        html {
-            background-color: #efefef;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 40px 0 0;
-        }
-        ul li {
-            margin: 4px 0;
-            font-family: Arial;
-            text-align: center;
-            padding: 5px 0;
-            border: 1px solid #868686;
-            border-radius: 4px;
-        }
-
-        .black {
-            background-color: #242424;
-            color: #ffffff;
-        }
-
-        .white {
-            background-color: #ffffff;
-            color: #242424;
-        }
-    </style>
+    <title>The Blinking List</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
+    <h1>The Blinking List</h1>
+    <label>Amazing FX
+        <input type="checkbox" id="fx" />
+    </label>
     <ul>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
+        <li class="white">waiting to blink...</li>
     </ul>
-    <script src="./test-developpeur-JavaScript.js"></script>
+    <button id="launch" class="btn">start</button>
+
+    <script src="./main.js"></script>
 </body>
 </html>
