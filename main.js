@@ -56,6 +56,7 @@
                     app.events.emit('pulsar:end', [counter]);
                     return;
                 }
+
                 var delay = fx ? period / divider : period;
                 totalTime -= delay;
                 counter += 1;
