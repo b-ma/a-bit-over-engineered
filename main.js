@@ -52,7 +52,7 @@
             totalTime = 10 * 1000;
 
             (function pulse(counter) {
-                if (!totalTime) {
+                if (totalTime <= 0) {
                     app.events.emit('pulsar:end', [counter]);
                     return;
                 }
