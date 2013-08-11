@@ -4,10 +4,9 @@
 // À la fin des 10 secondes, je veux afficher le total de clignotements
 // Mais le code ne fonctionne pas complètement, je ne sais pas pourquoi :(
 
-// @TODO :
-//      - add String.format method to diplay result
-//      - nodeList.forEach ?
-//      - add grunt
+// @TODO (eventually) :
+//      - String.prototype.format (to diplay result)
+//      - nodeList.prototype.forEach
 
 // aBitOverIngineered
 (function(window, document, undefined) {
