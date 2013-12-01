@@ -1,12 +1,3 @@
-// Cette fonction doit faire clignoter les lignes d'une liste pendant 10 secondes (parce que c'est très joli)
-//   - en changeant la classe CSS de "black" à "white" toutes les 2 secondes pour chaque ligne
-//   - elle doit aussi remplir le nombre de clignotements passés dans la ligne
-// À la fin des 10 secondes, je veux afficher le total de clignotements
-// Mais le code ne fonctionne pas complètement, je ne sais pas pourquoi :(
-
-// @TODO (eventually) :
-//      - String.prototype.format (to diplay result)
-//      - nodeList.prototype.forEach
 
 // aBitOverIngineered
 (function(window, document, undefined) {
